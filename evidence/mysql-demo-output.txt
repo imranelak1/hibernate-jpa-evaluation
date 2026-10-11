@@ -1,0 +1,511 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24055 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] -------------------< ma.projet:hibernate-evaluation >-------------------
+[INFO] Building hibernate-evaluation 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Could not transfer metadata /.meta/prefixes.txt from/to jvnet-nexus-releases (https://maven.java.net/content/repositories/releases/): PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- exec:3.5.0:java (default-cli) @ hibernate-evaluation ---
+[INFO] Loaded 74 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] Loaded 50 auto-discovered prefixes for remote repository ow2-snapshot (prefixes-ow2-snapshot.txt)
+Oct 11, 2026 12:04:55 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.6.15.Final
+Oct 11, 2026 12:04:55 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+Oct 11, 2026 12:04:55 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl configure
+WARN: HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Oct 11, 2026 12:04:55 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://127.0.0.1:3318/hibernate_evaluation?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false]
+Oct 11, 2026 12:04:55 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001001: Connection properties: {password=****, user=lab}
+Oct 11, 2026 12:04:55 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
+INFO: HHH10001003: Autocommit mode: false
+Oct 11, 2026 12:04:55 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections <init>
+INFO: HHH000115: Hibernate connection pool size: 20 (min=1)
+Oct 11, 2026 12:04:55 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+Oct 11, 2026 12:04:56 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@293a7b03] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table employe_tache 
+       drop 
+       foreign key FKt6i07qy44qp9ggd9aefgcm3l0" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table employe_tache 
+       drop 
+       foreign key FKt6i07qy44qp9ggd9aefgcm3l0" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.employe_tache' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table employe_tache 
+       drop 
+       foreign key FKi82la2hj0cjgjliexngflw9jw" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table employe_tache 
+       drop 
+       foreign key FKi82la2hj0cjgjliexngflw9jw" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.employe_tache' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table femmes 
+       drop 
+       foreign key FKnavvcfchig88iagwspdmi0tao" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table femmes 
+       drop 
+       foreign key FKnavvcfchig88iagwspdmi0tao" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.femmes' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table hommes 
+       drop 
+       foreign key FKhorvbluw2dr82qi3o0v0y1u40" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table hommes 
+       drop 
+       foreign key FKhorvbluw2dr82qi3o0v0y1u40" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.hommes' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table lignes_commande 
+       drop 
+       foreign key FKtry44xh8jbos217m4nk3wyyem" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table lignes_commande 
+       drop 
+       foreign key FKtry44xh8jbos217m4nk3wyyem" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.lignes_commande' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table lignes_commande 
+       drop 
+       foreign key FK97125vvuxcin9rytjad4u9bm4" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table lignes_commande 
+       drop 
+       foreign key FK97125vvuxcin9rytjad4u9bm4" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.lignes_commande' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table mariages 
+       drop 
+       foreign key FKjn8cmdmw49efvfrfqt4u2uxvm" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table mariages 
+       drop 
+       foreign key FKjn8cmdmw49efvfrfqt4u2uxvm" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.mariages' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table mariages 
+       drop 
+       foreign key FKsruf7u42s20hvy45cyp8niovi" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table mariages 
+       drop 
+       foreign key FKsruf7u42s20hvy45cyp8niovi" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.mariages' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table produits 
+       drop 
+       foreign key FK8xk7p0dnnygs2sys4thsfekba" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table produits 
+       drop 
+       foreign key FK8xk7p0dnnygs2sys4thsfekba" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.produits' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table projets 
+       drop 
+       foreign key FKkhvq8ucxvtnag3pp8435xshyi" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table projets 
+       drop 
+       foreign key FKkhvq8ucxvtnag3pp8435xshyi" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.projets' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl handleException
+WARN: GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table taches 
+       drop 
+       foreign key FKivu36sj7hvl7sr6sbe2mxsnqh" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table taches 
+       drop 
+       foreign key FKivu36sj7hvl7sr6sbe2mxsnqh" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:728)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:746)
+	at ma.projet.util.HibernateUtil.build(HibernateUtil.java:31)
+	at ma.projet.util.HibernateUtil$Holder.<clinit>(HibernateUtil.java:12)
+	at ma.projet.util.HibernateUtil.getSessionFactory(HibernateUtil.java:13)
+	at ma.projet.App.main(App.java:12)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doMain(ExecJavaMojo.java:375)
+	at org.codehaus.mojo.exec.ExecJavaMojo.doExec(ExecJavaMojo.java:364)
+	at org.codehaus.mojo.exec.ExecJavaMojo.lambda$execute$0(ExecJavaMojo.java:286)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'hibernate_evaluation.taches' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 21 more
+
+Oct 11, 2026 12:04:56 PM org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl getIsolatedConnection
+INFO: HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@54c2d667] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+Oct 11, 2026 12:04:56 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+BASE REELLE : MySQL 8.4.0
+EVALUATION — EXERCICE 1 : GESTION DE STOCK
+Produits par categorie : [ES12 120.0 DH, ZR85 100.0 DH, EE85 200.0 DH]
+Commandes entre 01/03/2013 et 31/03/2013 : [ES12 120.0 DH, ZR85 100.0 DH, EE85 200.0 DH]
+Commande : 1 Date : 2013-03-14
+Reference   Prix        Quantite
+ES12         120.00 DH  7
+ZR85         100.00 DH  14
+EE85         200.00 DH  5
+Requete nommee prix >100 DH : [ES12 120.0 DH, EE85 200.0 DH]
+Montant commande : 3240.0 DH
+EVALUATION — EXERCICE 2 : GESTION DE PROJETS
+Projet : 1 Nom : Gestion de stock Date debut : 2013-01-14
+Taches planifiees : [Analyse, Conception, Developpement, Recette]
+Num Nom               Date debut reelle   Date fin reelle
+1   Analyse            2013-02-10          2013-02-20
+2   Conception         2013-03-10          2013-03-15
+3   Developpement      2013-04-10          2013-04-25
+Taches realisees employe : [Analyse, Conception, Developpement]
+Projets geres employe : [Gestion de stock]
+Requete nommee taches >1000 DH : [Analyse, Developpement]
+Taches realisees fevrier-mars : [Analyse, Conception]
+Cout planifie : 5500.0 DH ; cout realise : 4700.0 DH ; jours passes : 30
+EVALUATION — EXERCICE 3 : ETAT CIVIL
+Population : 10 femmes, 5 hommes
+Liste des femmes : [ALAMI Karima (1960-01-01), RAMI Salima (1961-01-01), ALI Amal (1962-01-01), ALAOUI Wafa (1963-01-01), HAMDI Hana (1964-01-01), BENALI Nora (1965-01-01), IDRISSI Asma (1966-01-01), TAZI Hiba (1967-01-01), FASSI Meryem (1968-01-01), AMRANI Lina (1969-01-01)]
+Femme la plus agee : ALAMI Karima (1960-01-01)
+Epouses de SAFI Said (2000..2020) : [RAMI Salima (1961-01-01), ALI Amal (1962-01-01), ALAOUI Wafa (1963-01-01), HAMDI Hana (1964-01-01)]
+Requete native nommee enfants de RAMI Salima : 4
+Requete nommee femmes mariees >=2 fois : [ALAMI Karima (1960-01-01)]
+Criteria nombre hommes maries a 4 femmes (2000..2020) : 1
+Nom : SAFI Said — Mariages en cours :
+Femme : RAMI Salima Date debut : 1990-09-03 Date fin : null Nbr enfants : 4
+Femme : ALI Amal Date debut : 1995-09-03 Date fin : null Nbr enfants : 2
+Femme : ALAOUI Wafa Date debut : 2000-11-04 Date fin : null Nbr enfants : 3
+Femme : HAMDI Hana Date debut : 2005-01-01 Date fin : null Nbr enfants : 1
+Mariages echoues :
+Femme : ALAMI Karima Date debut : 1989-09-03 Date fin : 1990-09-03 Nbr enfants : 0
+VERIFICATION BASE : toutes les invariants metier sont satisfaits.
+Oct 11, 2026 12:04:57 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PoolState stop
+INFO: HHH10001008: Cleaning up connection pool [jdbc:mysql://127.0.0.1:3318/hibernate_evaluation?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.497 s
+[INFO] Finished at: 2026-10-11T12:04:57+01:00
+[INFO] ------------------------------------------------------------------------
