@@ -80,7 +80,7 @@ def main():
     if (evidence / 'mysql-test-output.txt').exists():
         mysql_log = read_text(evidence / 'mysql-test-output.txt')
         mysql_summary = [line for line in mysql_log.splitlines() if 'Tests run:' in line or 'BUILD SUCCESS' in line or 'Finished at:' in line]
-        verification = read_text(evidence / 'mysql-verification.txt') if (evidence / 'mysql-verification.txt').exists() else ''
+        verification = '\n'.join(line for line in read_text(evidence / 'mysql-verification.txt').splitlines() if line.strip()) if (evidence / 'mysql-verification.txt').exists() else ''
         mysql_section = '<section id="mysql"><h2>Vérification sur MySQL réel</h2><p class="note">Sorties exactes de Maven et des requêtes SQL exécutées dans le conteneur MySQL du laboratoire.</p><pre>' + escape('\n'.join(mysql_summary)) + '\n\n' + escape(verification) + '</pre></section>'
     links = ''.join(f'<li><a href="{escape(name)}">{escape(name)}</a> <code>{digest}</code></li>' for name, digest in hashes.items())
     document = f'''<!doctype html>
