@@ -26,7 +26,9 @@ docker compose down
 
 ## Résultats
 
-Les 14 tests passent sur H2 et les mêmes 14 tests passent sur MySQL. La démo affiche les résultats des trois exercices. Les sorties et la vérification SQL sont conservées dans [evidence](evidence/).
+Les 14 tests passent sur H2 et les mêmes 14 tests passent sur MySQL. Les sorties et la vérification SQL sont conservées dans [evidence](evidence/).
+
+Les captures de la démo et des tests viennent d’exécutions réelles dans le terminal.
 
 ![Résultats des trois exercices](screenshots/results.png)
 

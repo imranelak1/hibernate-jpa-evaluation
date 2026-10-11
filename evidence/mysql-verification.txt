@@ -1,35 +1,28 @@
-Verification SQL directe sur le conteneur MySQL du laboratoire
-mysql_version
-8.4.0
-Tables_in_hibernate_evaluation
-categories
-commandes
-employe_tache
-employes
-femmes
-hommes
-lignes_commande
-mariages
-personnes
-produits
-projets
-taches
-table_name	row_count
-categories	2
-produits	4
-commandes	2
-lignes_commande	5
-employes	2
-projets	1
-taches	4
-employe_tache	4
-personnes	15
-hommes	5
-femmes	10
-mariages	6
-reference	prix	quantite	date_commande
-ES12	120	7	2013-03-14
-ZR85	100	14	2013-03-14
-EE85	200	5	2013-03-14
-enfants_salima
-4
++---------------+
+| version_mysql |
++---------------+
+| 8.4.0         |
++---------------+
++-----------------+-----------+
+| table_name      | row_count |
++-----------------+-----------+
+| produits        |         4 |
+| categories      |         2 |
+| commandes       |         2 |
+| lignes_commande |         5 |
+| employes        |         2 |
+| projets         |         1 |
+| taches          |         4 |
+| employe_tache   |         4 |
+| personnes       |        15 |
+| hommes          |         5 |
+| femmes          |        10 |
+| mariages        |         6 |
++-----------------+-----------+
++-----------+------+----------+
+| reference | prix | quantite |
++-----------+------+----------+
+| ES12      |  120 |        7 |
+| ZR85      |  100 |       14 |
+| EE85      |  200 |        5 |
++-----------+------+----------+
